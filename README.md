@@ -21,13 +21,19 @@ This repository contains my project submissions for the CodeAlpha Frontend Devel
   - Calculation history
   - Theme switcher (Dark, Light, Orange)
 
-## How to Run
+## 🚀 Live Demos
+
+### Task 1: Image Gallery
+- **Netlify Link:** [image-gallery-task1-19dfbd.netlify.app](https://image-gallery-task1-19dfbd.netlify.app)
+
+
+### Task 2: Calculator  
+- **Netlify Link:** [task2-calculator-99af.netlify.app](https://task2-calculator-99af.netlify.app)
+
+
+## How to Run Locally
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/eisxha-ahmad/CodeAlpha-FrontEnd.git
-
-2. Netlify Links for tasks
-   image-gallery-task1-19dfbd.netlify.app(image gallery)
-   task2-calculator-99af.netlify.app (calculator)
    
