@@ -1,0 +1,443 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff9500, #ff5e3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #aaa;
+    font-weight: 300;
+}
+
+
+.calculator-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1024px) {
+    .calculator-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.calculator {
+    background: #1e1e1e;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+
+.display {
+    background: #111;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: right;
+    border: 2px solid #333;
+    position: relative;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: #888;
+    min-height: 30px;
+    word-break: break-all;
+    font-family: 'Orbitron', monospace;
+}
+
+.current-operand {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #fff;
+    word-break: break-all;
+    font-family: 'Orbitron', monospace;
+    line-height: 1.2;
+}
+
+.operation-display {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 1.5rem;
+    color: #ff9500;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+
+.btn {
+    padding: 22px 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+
+.number-btn {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 4px 0 #222;
+}
+
+.number-btn:hover {
+    background: #444;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #222;
+}
+
+
+.operation-btn {
+    background: linear-gradient(145deg, #ff9500, #e68500);
+    color: white;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 0 #cc6d00;
+}
+
+.operation-btn:hover {
+    background: linear-gradient(145deg, #ffa62e, #ff9500);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #cc6d00;
+}
+
+
+.function-btn {
+    background: #444;
+    color: #fff;
+    box-shadow: 0 4px 0 #333;
+}
+
+.function-btn:hover {
+    background: #555;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #333;
+}
+
+
+.equals-btn {
+    background: linear-gradient(145deg, #ff5e3a, #ff2a2a);
+    color: white;
+    font-size: 1.6rem;
+    grid-column: span 2;
+    box-shadow: 0 4px 0 #cc2424;
+}
+
+.equals-btn:hover {
+    background: linear-gradient(145deg, #ff7a5c, #ff5e3a);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #cc2424;
+}
+
+
+.memory-btn {
+    background: #2a2a2a;
+    color: #aaa;
+    font-size: 1rem;
+    padding: 15px 5px;
+    box-shadow: 0 4px 0 #1a1a1a;
+}
+
+.memory-btn:hover {
+    background: #3a3a3a;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #1a1a1a;
+}
+
+
+.keyboard-info {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 149, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 149, 0, 0.3);
+    font-size: 0.9rem;
+    color: #ff9500;
+}
+
+.keyboard-info i {
+    margin-right: 8px;
+}
+
+
+.features-sidebar {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.features-sidebar h3 {
+    color: #ff9500;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.features-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ccc;
+}
+
+.features-list li i {
+    color: #4CAF50;
+}
+
+
+.theme-toggle {
+    margin-bottom: 30px;
+}
+
+.theme-toggle h4 {
+    color: #ff9500;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-option {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #444;
+    background: #222;
+    color: #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.theme-option.active {
+    border-color: #ff9500;
+    background: rgba(255, 149, 0, 0.2);
+    color: #ff9500;
+}
+
+.theme-option:hover:not(.active) {
+    border-color: #666;
+}
+
+
+.history h4 {
+    color: #ff9500;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-list {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    color: #aaa;
+    border-left: 3px solid #ff9500;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-btn {
+    padding: 12px 25px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.footer-btn:hover {
+    background: #ff9500;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 149, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .current-operand {
+        font-size: 2.5rem;
+    }
+    
+    .btn {
+        padding: 18px 5px;
+        font-size: 1.2rem;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+    
+    .calculator-wrapper {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .equals-btn {
+        grid-column: span 2;
+    }
+    
+    .btn {
+        padding: 15px 5px;
+        font-size: 1rem;
+    }
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.equals-btn:active {
+    animation: pulse 0.2s;
+}
+
+
+.history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: #ff9500;
+    border-radius: 4px;
+}

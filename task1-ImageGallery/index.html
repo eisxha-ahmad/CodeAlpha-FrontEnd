@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAlpha - Coffee Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --coffee-dark: #3C2A21;
+            --coffee-medium: #5C4033;
+            --coffee-light: #8B7355;
+            --cream: #F5E8C7;
+            --accent: #D4A574;
+        }
+    </style>
+</head>
+<body class="bg-coffee">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-mug-hot me-2"></i>CodeAlpha Gallery
+            </a>
+        </div>
+    </nav>
+
+    <header class="py-5 mt-5">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold text-center mb-3">
+               
+                <span class="text-accent">Image</span>
+                Gallery
+            </h1>
+            
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="filters" class="mb-5">
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button class="btn btn-filter active" data-filter="all">All</button>
+                <button class="btn btn-filter" data-filter="nature">Nature</button>
+                <button class="btn btn-filter" data-filter="city">City</button>
+                <button class="btn btn-filter" data-filter="coffee">Coffee</button>
+                <button class="btn btn-filter" data-filter="vintage">Vintage</button>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="row g-4" id="galleryGrid"></div>
+        </section>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-load" id="loadMore">
+                <i class="fas fa-plus me-2"></i>Load More
+            </button>
+        </div>
+    </main>
+
+    <div class="modal fade" id="lightboxModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-dark" id="lightboxTitle">Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <div class="image-container">
+                        <img id="lightboxImage" src="" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-prev" id="prevImageBtn">
+                        <i class="fas fa-chevron-left me-2"></i>Previous
+                    </button>
+                    <button type="button" class="btn btn-next" id="nextImageBtn">
+                        Next<i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-light">
+                <i class="fas fa-code me-2"></i>CodeAlpha Internship | Task 1
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
