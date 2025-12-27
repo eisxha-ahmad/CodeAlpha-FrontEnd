@@ -26,3 +26,8 @@ This repository contains my project submissions for the CodeAlpha Frontend Devel
 1. Clone the repository:
    ```bash
    git clone https://github.com/eisxha-ahmad/CodeAlpha-FrontEnd.git
+
+2. Netlify Links for tasks
+   image-gallery-task1-19dfbd.netlify.app(image gallery)
+   task2-calculator-99af.netlify.app (calculator)
+   
